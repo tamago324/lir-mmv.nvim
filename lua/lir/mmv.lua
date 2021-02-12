@@ -15,7 +15,7 @@ end
 function M.onBufWinEnter()
   -- I'd like to use `EDITOR='nvr --remote-wait +"set bufhidden=wipe"'`, but I can't.
   vim.cmd('setlocal bufhidden=wipe')
-  local info = a.nvim_tabpage_get_var(a.nvim_tabpage_get_number(0), 'lir_mmv')
+  local info = a.nvim_tabpage_get_var(a.nvim_get_current_tabpage(), 'lir_mmv')
   highlight(info.files)
   a.nvim_win_set_cursor(0, info.curpos)
 end
